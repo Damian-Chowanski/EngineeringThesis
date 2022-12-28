@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "790839957167",
+    "project_id": "engineerappfirebase",
+    "storage_bucket": "engineerappfirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:790839957167:android:28958f9d67a9e296a9e65a",
+        "android_client_info": {
+          "package_name": "com.example.engineeringapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "790839957167-goui4jef1u3l5hhcj36gbnf9lhn06p97.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.engineeringapp",
+            "certificate_hash": "3bb8d605f5ad7344f2bbc5f7013907f9bee3ab5f"
+          }
+        },
+        {
+          "client_id": "790839957167-2dlsviot9t47jaa5octaelop95qcs5f3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiLFo1nEyx3dvxZJtxYMFZYToLiJkrLv8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "790839957167-2dlsviot9t47jaa5octaelop95qcs5f3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
