@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">EngineeringApp</string>
+    <string name="password_textbox_hint">Password</string>
+    <string name="log_in_button">Log In</string>
+    <string name="emailbox_hint">e-mail</string>
+    <string name="sing_in_text">Sing In</string>
+    <string name="logo_description">Logo</string>
+    <string name="login_tittle_textView">Login Screen</string>
 </resources>
