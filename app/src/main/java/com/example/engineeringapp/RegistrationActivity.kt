@@ -79,14 +79,13 @@ class RegistrationActivity : AppCompatActivity() {
                         }
 
                     }
-            }
+                }
             }
         }
         //Go to Login Activity:
         val logInActivity = findViewById<TextView>(R.id.login_activity_text)
         logInActivity.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+            onBackPressed()
         }
     }
 }
