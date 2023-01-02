@@ -8,6 +8,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class RegistrationActivity : AppCompatActivity() {
 
@@ -49,7 +51,35 @@ class RegistrationActivity : AppCompatActivity() {
                         "The passwords don't match!",
                         Toast.LENGTH_SHORT
                     ).show()
-                }
+                } else -> {
+                    val userEmail: String = reg_email.text.toString().trim { it <=  ' '}
+                    val userPass: String = reg_pass1.text.toString().trim{ it <=  ' '}
+
+                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(userEmail, userPass).addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val firebaseUser: FirebaseUser = task.result!!.user!!
+                            Toast.makeText(
+                                this@RegistrationActivity,
+                                "You were registered successfully.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+
+                            val intent = Intent(this@RegistrationActivity,MainActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            intent.putExtra("user_id", firebaseUser.uid)
+                            intent.putExtra("email_id", userEmail)
+                            startActivity(intent)
+                            finish()
+                        } else {
+                            Toast.makeText(
+                                this@RegistrationActivity,
+                                task.exception!!.message.toString(),
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+
+                    }
+            }
             }
         }
         //Go to Login Activity:
