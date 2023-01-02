@@ -11,7 +11,9 @@ class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
+        this.title = "Registration Page"
 
+        //Go to Login Activity:
         val logInActivity = findViewById<TextView>(R.id.login_activity_text)
         logInActivity.setOnClickListener {
             val intent = Intent(this, LoginActivity::class.java)
