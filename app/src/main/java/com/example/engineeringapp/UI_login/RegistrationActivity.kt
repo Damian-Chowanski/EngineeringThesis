@@ -1,4 +1,4 @@
-package com.example.engineeringapp
+package com.example.engineeringapp.UI_login
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.engineeringapp.R
+import com.example.engineeringapp.userdata_collect.UserDataCollectInformation
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
@@ -64,7 +66,7 @@ class RegistrationActivity : AppCompatActivity() {
                                 Toast.LENGTH_SHORT
                             ).show()
 
-                            val intent = Intent(this@RegistrationActivity,MainActivity::class.java)
+                            val intent = Intent(this@RegistrationActivity, UserDataCollectInformation::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             intent.putExtra("user_id", firebaseUser.uid)
                             intent.putExtra("email_id", userEmail)

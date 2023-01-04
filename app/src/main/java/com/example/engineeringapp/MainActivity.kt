@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.engineeringapp.UI_login.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
@@ -12,8 +13,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val userId = intent.getStringExtra("user_id")
-        val emailId = intent.getStringExtra("email_id")
+        //val userId = intent.getStringExtra("user_id")
+        val userId = FirebaseAuth.getInstance().uid.toString()
+        val emailId = FirebaseAuth.getInstance().currentUser!!.email.toString()
 
         var userIdTextView: TextView = findViewById(R.id.user_id)
         userIdTextView.text = "User_ID :: $userId"
