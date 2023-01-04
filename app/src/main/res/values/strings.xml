@@ -15,4 +15,12 @@
     <string name="information_about_collected_data">Now we need to collect few information about you that helps us to contact with you.We\'ll use them to ship your device and order a delivery man. Those informations are visible only for our company</string>
     <string name="let_us_know_about_you">Let us know about you</string>
     <string name="next">Next</string>
+    <string name="country">Country</string>
+    <string name="city">City</string>
+    <string name="zip_code">Zip code</string>
+    <string name="street">Street</string>
+    <string name="phone_number">Phone number</string>
+    <string name="surname">Surname</string>
+    <string name="name">Name</string>
+    <string name="save">Save</string>
 </resources>
