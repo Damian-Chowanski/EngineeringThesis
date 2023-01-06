@@ -3,6 +3,7 @@ package com.example.engineeringapp.UI_login
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.engineeringapp.MainActivity
@@ -76,5 +77,11 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
-
+    //hide action bar
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus){
+            this.window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_FULLSCREEN)
+        }
+    }
 }

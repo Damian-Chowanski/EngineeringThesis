@@ -3,6 +3,7 @@ package com.example.engineeringapp
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.engineeringapp.UI_login.LoginActivity
@@ -32,6 +33,13 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(Intent(this@MainActivity, LoginActivity::class.java))
             finish()
+        }
+    }
+    //hide action bar
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus){
+            this.window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_FULLSCREEN)
         }
     }
 }
