@@ -19,7 +19,7 @@
     <string name="city">City</string>
     <string name="zip_code">Zip code</string>
     <string name="street">Street</string>
-    <string name="phone_number">Phone number</string>
+    <string name="phone_number">Phone</string>
     <string name="surname">Surname</string>
     <string name="name">Name</string>
     <string name="save">Save</string>

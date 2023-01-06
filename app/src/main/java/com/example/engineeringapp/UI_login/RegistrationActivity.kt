@@ -68,8 +68,6 @@ class RegistrationActivity : AppCompatActivity() {
 
                             val intent = Intent(this@RegistrationActivity, UserDataCollectInformation::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                            intent.putExtra("user_id", firebaseUser.uid)
-                            intent.putExtra("email_id", userEmail)
                             startActivity(intent)
                             finish()
                         } else {

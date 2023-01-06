@@ -12,7 +12,7 @@
         android:id="@+id/tv_information"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="80dp"
         android:text="@string/let_us_know_about_you"
         android:textColor="@color/white"
         android:textSize="32sp"
@@ -41,12 +41,16 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@color/white"
+        android:hint="@string/name"
         android:importantForAutofill="no"
+        android:inputType="text"
         android:minHeight="48dp"
+        android:textColorHint="#78909C"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/et_surname"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_information" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_information"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/tv_surname"
@@ -66,12 +70,16 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@color/white"
+        android:hint="@string/surname"
         android:importantForAutofill="no"
+        android:inputType="text"
         android:minHeight="48dp"
+        android:textColorHint="#78909C"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@id/et_street"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_name" />
+        app:layout_constraintTop_toBottomOf="@id/et_name"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/tv_street"
@@ -91,13 +99,16 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@color/white"
+        android:hint="@string/street"
         android:importantForAutofill="no"
+        android:inputType="text"
         android:minHeight="48dp"
+        android:textColorHint="#78909C"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@id/et_zip_code"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_surname"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/tv_zip_code"
@@ -117,13 +128,16 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@color/white"
+        android:hint="@string/zip_code"
         android:importantForAutofill="no"
+        android:inputType="text"
         android:minHeight="48dp"
+        android:textColorHint="#78909C"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@id/et_city"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_street"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/tv_city"
@@ -144,13 +158,16 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@color/white"
+        android:hint="@string/city"
         android:importantForAutofill="no"
+        android:inputType="text"
         android:minHeight="48dp"
+        android:textColorHint="#78909C"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/et_country"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_zip_code"
-        tools:ignore="SpeakableTextPresentCheck" />
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <TextView
         android:id="@+id/tv_country"
@@ -162,23 +179,58 @@
         app:layout_constraintEnd_toStartOf="@+id/et_country"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_city"
-        app:layout_constraintBottom_toTopOf="@id/btn_save"/>
+        app:layout_constraintBottom_toTopOf="@id/tv_phone_number"/>
+
     <EditText
         android:id="@+id/et_country"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@color/white"
+        android:hint="@string/country"
+        android:inputType="text"
         android:minHeight="48dp"
+        android:textColorHint="#78909C"
         android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/et_phone_number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_city"
-        app:layout_constraintBottom_toTopOf="@+id/btn_save"
-        android:layout_marginBottom="16dp"
+        tools:ignore="DuplicateSpeakableTextCheck"
         android:autofillHints="" />
+
+    <TextView
+        android:id="@+id/tv_phone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/phone_number"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toStartOf="@+id/et_phone_number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_country"
+        app:layout_constraintBottom_toTopOf="@id/btn_save"/>
+
+    <EditText
+        android:id="@+id/et_phone_number"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:autofillHints=""
+        android:background="@color/white"
+        android:hint="@string/phone_number"
+        android:inputType="phone"
+        android:minHeight="48dp"
+        android:textColorHint="#78909C"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_country"
+        tools:ignore="DuplicateSpeakableTextCheck" />
 
     <Button
         android:id="@+id/btn_save"
+        android:clickable="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -189,10 +241,8 @@
         app:backgroundTint="@color/secondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_country" />
-
-
-
+        app:layout_constraintTop_toBottomOf="@id/et_phone_number"
+        android:focusable="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
