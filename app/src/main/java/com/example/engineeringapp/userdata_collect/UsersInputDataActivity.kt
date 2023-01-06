@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.engineeringapp.MainActivity
 import com.example.engineeringapp.Module.UserData
 import com.example.engineeringapp.databinding.ActivityUsersInputDataBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -20,6 +21,7 @@ class UsersInputDataActivity : AppCompatActivity() {
         binding = ActivityUsersInputDataBinding.inflate(layoutInflater)
         setContentView(binding.root)
         this.title = "Present yourself!"
+
         binding.btnSave.setOnClickListener {
 
             val name = binding.etName.text.toString()
@@ -29,6 +31,8 @@ class UsersInputDataActivity : AppCompatActivity() {
             val city = binding.etCity.text.toString()
             val country = binding.etCountry.text.toString()
             val phoneNumber = binding.etPhoneNumber.text.toString()
+            val userId = FirebaseAuth.getInstance().uid
+
             when {
                 name.isEmpty() -> {
                     Toast.makeText(
@@ -82,8 +86,8 @@ class UsersInputDataActivity : AppCompatActivity() {
                 else -> {
                     database = FirebaseDatabase.getInstance().getReference("Users")
                     val User =
-                        UserData(name, surname, street, zipCode, city, country, phoneNumber)
-                    database.child(phoneNumber).setValue(User).addOnSuccessListener {
+                        UserData(userId, name, surname, street, zipCode, city, country, phoneNumber)
+                    database.child(userId.toString()).setValue(User).addOnSuccessListener {
 
                         Toast.makeText(this, "Successfully saved", Toast.LENGTH_SHORT).show()
 

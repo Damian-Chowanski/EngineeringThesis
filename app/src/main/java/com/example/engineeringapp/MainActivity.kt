@@ -1,27 +1,30 @@
 package com.example.engineeringapp
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.engineeringapp.UI_login.LoginActivity
+import com.example.engineeringapp.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         //val userId = intent.getStringExtra("user_id")
-        val userId = FirebaseAuth.getInstance().uid.toString()
-        val emailId = FirebaseAuth.getInstance().currentUser!!.email.toString()
+        val userId = FirebaseAuth.getInstance().uid
+        val emailId = FirebaseAuth.getInstance().currentUser!!.email
 
-        var userIdTextView: TextView = findViewById(R.id.user_id)
-        userIdTextView.text = "User_ID :: $userId"
+        binding.userId.text = "User_ID :: $userId"
 
-        var userEmailTextView: TextView = findViewById(R.id.user_email)
-        userEmailTextView.text = "User email :: $emailId"
+        binding.userEmail.text = "User email :: $emailId"
 
         val btnLogout: Button = findViewById(R.id.btn_logout)
         btnLogout.setOnClickListener {
