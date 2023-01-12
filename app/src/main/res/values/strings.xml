@@ -23,4 +23,7 @@
     <string name="surname">Surname</string>
     <string name="name">Name</string>
     <string name="save">Save</string>
+    <string name="logout">LOGOUT</string>
+    <string name="logout_for_text">Logout</string>
+    <string name="settings">Settings</string>
 </resources>
