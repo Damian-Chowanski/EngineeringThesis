@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.engineeringapp.Module.Utility
 import com.example.engineeringapp.UI_login.LoginActivity
 import com.example.engineeringapp.databinding.ActivityMainBinding
 import com.google.android.material.appbar.MaterialToolbar
@@ -33,20 +34,24 @@ class MainActivity : AppCompatActivity() {
 
         val btnLogout: Button = findViewById(R.id.btn_logout)
         btnLogout.setOnClickListener {
-            logout()
+            intent = Utility.logout(this@MainActivity)
+            startActivity(intent)
         }
 
-        topAppBar.setOnMenuItemClickListener() { menuItem ->
+        topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.settings -> {
                     Toast.makeText(this, "settings", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.ab_logout -> {
-                    logout()
+                    intent = Utility.logout(this@MainActivity)
+                    startActivity(intent)
                     true
                 }
-                else -> { false }
+                else -> {
+                    false
+                }
             }
         }
     }
@@ -55,16 +60,9 @@ class MainActivity : AppCompatActivity() {
     //hide action bar
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
-        if (hasFocus){
+        if (hasFocus) {
             this.window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_FULLSCREEN)
         }
-    }
-
-    fun logout() {
-        FirebaseAuth.getInstance().signOut()
-
-        startActivity(Intent(this@MainActivity, LoginActivity::class.java))
-        finish()
     }
 }
 
