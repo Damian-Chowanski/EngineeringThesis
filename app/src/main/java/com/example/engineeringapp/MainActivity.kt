@@ -23,8 +23,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //getting data for logged user
+        
+
         topAppBar = findViewById(R.id.topAppBar)
-        //val userId = intent.getStringExtra("user_id")
         val userId = FirebaseAuth.getInstance().uid
         val emailId = FirebaseAuth.getInstance().currentUser!!.email
 

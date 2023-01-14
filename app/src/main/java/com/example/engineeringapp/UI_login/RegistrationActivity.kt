@@ -20,39 +20,29 @@ class RegistrationActivity : AppCompatActivity() {
         setContentView(binding.root)
         this.title = "Registration Page"
 
+        //button register functionality
+
         binding.btnRegister.setOnClickListener {
-            when{
-                TextUtils.isEmpty(binding.registerEmail.text.toString().trim { it <= ' '}) -> {
-                    Toast.makeText(
-                        this@RegistrationActivity,
-                        "Please enter an email",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                TextUtils.isEmpty(binding.registrationPassword.text.toString().trim { it <= ' '}) -> {
-                    Toast.makeText(
-                        this@RegistrationActivity,
-                        "Please enter a password",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                TextUtils.isEmpty(binding.repeatPassword.text.toString().trim {it <= ' '}) -> {
-                    Toast.makeText(
-                        this@RegistrationActivity,
-                        "Please repeat your password",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                !TextUtils.equals(binding.registrationPassword.text.toString(),binding.repeatPassword.text.toString()) -> {
-                    Toast.makeText(
-                        this@RegistrationActivity,
-                        "The passwords don't match!",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else -> {
-                    val userEmail: String = binding.registerEmail.text.toString().trim { it <=  ' '}
-                    val userPass: String = binding.registrationPassword.text.toString().trim{ it <=  ' '}
-                    FirebaseAuth.getInstance().createUserWithEmailAndPassword(userEmail, userPass).addOnCompleteListener { task ->
+
+            val userEmail: String = binding.registerEmail.text.toString().trim { it <= ' ' }
+            val userPass: String = binding.registrationPassword.text.toString().trim { it <= ' ' }
+            val userPassRep: String = binding.repeatPassword.text.toString().trim { it <= ' ' }
+
+            if (userEmail.isEmpty()) {
+                binding.registerEmail.error = "Please enter an email"
+            }
+            else if (userPass.isEmpty()) {
+                binding.registrationPassword.error = "Please enter a password"
+            }
+            else if (userPassRep.isEmpty()) {
+                binding.repeatPassword.error = "Please repeat a password"
+            }
+            else if (userPass != userPassRep) {
+                binding.repeatPassword.error = "Passwords don't match"
+            }
+            else {
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(userEmail, userPass)
+                    .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             val firebaseUser: FirebaseUser = task.result!!.user!!
                             Toast.makeText(
@@ -61,8 +51,13 @@ class RegistrationActivity : AppCompatActivity() {
                                 Toast.LENGTH_SHORT
                             ).show()
 
-                            val intent = Intent(this@RegistrationActivity, UserDataCollectInformation::class.java)
-                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            val intent =
+                                Intent(
+                                    this@RegistrationActivity,
+                                    UserDataCollectInformation::class.java
+                                )
+                            intent.flags =
+                                Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             intent.putExtra("email", userEmail)
                             startActivity(intent)
                             finish()
@@ -73,13 +68,10 @@ class RegistrationActivity : AppCompatActivity() {
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
-
-                    }
-                }
+                     }
             }
         }
         //Go to Login Activity:
-
         binding.loginActivityText.setOnClickListener {
             onBackPressed()
         }

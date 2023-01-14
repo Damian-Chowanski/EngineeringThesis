@@ -19,26 +19,18 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         this.title = "Log In Page"
 
+        // button login functionality
         binding.btnLogin.setOnClickListener {
-            when{
-                TextUtils.isEmpty(binding.loginEmail.text.toString().trim { it <= ' '}) -> {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        "Please enter an email",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-                TextUtils.isEmpty(binding.loginPassword.text.toString().trim { it <= ' '}) -> {
-                    Toast.makeText(
-                        this@LoginActivity,
-                        "Please enter a password",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else -> {
+            val userEmail: String = binding.loginEmail.text.toString().trim { it <=  ' '}
+            val userPass: String = binding.loginPassword.text.toString().trim{ it <=  ' '}
 
-                val userEmail: String = binding.loginEmail.text.toString().trim { it <=  ' '}
-                val userPass: String = binding.loginPassword.text.toString().trim{ it <=  ' '}
-
+            if (userEmail.isEmpty()) {
+                binding.loginEmail.error = "Please type an email"
+            }
+            else if (userPass.isEmpty()){
+                binding.loginPassword.error = "Please type a password"
+            }
+            else {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(userEmail, userPass).addOnCompleteListener { task ->
                     if (task.isSuccessful) {
 
@@ -65,9 +57,7 @@ class LoginActivity : AppCompatActivity() {
 
                 }
             }
-            }
         }
-
 
         //go to Registartion activity
 
