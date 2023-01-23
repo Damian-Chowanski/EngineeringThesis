@@ -7,15 +7,21 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.engineeringapp.Module.UserData
 import com.example.engineeringapp.Module.Utility
-import com.example.engineeringapp.UI_login.LoginActivity
 import com.example.engineeringapp.databinding.ActivityMainBinding
+import com.example.engineeringapp.menuItems.SetingsActivity
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var topAppBar: MaterialToolbar
+    private lateinit var dbref : DatabaseReference
+    private lateinit var user : UserData
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,14 +29,32 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //getting data for logged user
-        
-
         topAppBar = findViewById(R.id.topAppBar)
-        val userId = FirebaseAuth.getInstance().uid
-        val emailId = FirebaseAuth.getInstance().currentUser!!.email
+        val userId = FirebaseAuth.getInstance().uid.toString()
+
+        //getting data for logged user
+        dbref = FirebaseDatabase.getInstance().getReference("Users").child(userId)
+        dbref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val id = userId
+                val firstname = snapshot.child("name").value.toString()
+                val lastname = snapshot.child("surname").value.toString()
+                val street = snapshot.child("street").value.toString()
+                val zipCode = snapshot.child("zipCode").value.toString()
+                val city = snapshot.child("city").value.toString()
+                val country = snapshot.child("country").value.toString()
+                val phone = snapshot.child("phoneNumber").value.toString()
+                user = UserData(id, firstname, lastname, street, zipCode, city, country, phone)
+                println(user.firstName)
+            }
+            override fun onCancelled(error: DatabaseError) {
+                println("ERROR")
+            }
+        })
 
         binding.userId.text = "User_ID :: $userId"
+
+        val emailId = FirebaseAuth.getInstance().currentUser!!.email
 
         binding.userEmail.text = "User email :: $emailId"
 
@@ -41,9 +65,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         topAppBar.setOnMenuItemClickListener { menuItem ->
+
             when (menuItem.itemId) {
                 R.id.settings -> {
-                    Toast.makeText(this, "settings", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this,SetingsActivity::class.java)
+                    intent.putExtra("UserData", user)
+                    startActivity(intent)
                     true
                 }
                 R.id.ab_logout -> {

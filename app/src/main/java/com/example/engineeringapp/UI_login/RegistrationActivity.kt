@@ -20,25 +20,28 @@ class RegistrationActivity : AppCompatActivity() {
         setContentView(binding.root)
         this.title = "Registration Page"
 
-        //button register functionality
+        val regEmail = binding.registerEmail
+        val regPass1 = binding.registrationPassword
+        val regPass2 = binding.repeatPassword
 
+        //button register functionality
         binding.btnRegister.setOnClickListener {
 
-            val userEmail: String = binding.registerEmail.text.toString().trim { it <= ' ' }
-            val userPass: String = binding.registrationPassword.text.toString().trim { it <= ' ' }
-            val userPassRep: String = binding.repeatPassword.text.toString().trim { it <= ' ' }
+            val userEmail: String = regEmail.text.toString().trim { it <= ' ' }
+            val userPass: String = regPass1.text.toString().trim { it <= ' ' }
+            val userPassRep: String = regPass2.text.toString().trim { it <= ' ' }
 
             if (userEmail.isEmpty()) {
-                binding.registerEmail.error = "Please enter an email"
+                regEmail.error = "Please enter an email"
             }
             else if (userPass.isEmpty()) {
-                binding.registrationPassword.error = "Please enter a password"
+                regPass1.error = "Please enter a password"
             }
             else if (userPassRep.isEmpty()) {
-                binding.repeatPassword.error = "Please repeat a password"
+                regPass2.error = "Please repeat a password"
             }
             else if (userPass != userPassRep) {
-                binding.repeatPassword.error = "Passwords don't match"
+                regPass2.error = "Passwords don't match"
             }
             else {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(userEmail, userPass)

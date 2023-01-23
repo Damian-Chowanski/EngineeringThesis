@@ -15,7 +15,7 @@ import com.google.firebase.database.FirebaseDatabase
 class UsersInputDataActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityUsersInputDataBinding
-    lateinit var database: DatabaseReference
+    lateinit var dbReference: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,10 +23,12 @@ class UsersInputDataActivity : AppCompatActivity() {
         setContentView(binding.root)
         this.title = "Present yourself!"
 
+        dbReference = FirebaseDatabase.getInstance().getReference("Users")
+
         binding.btnSave.setOnClickListener {
 
-            val name = binding.etName.text.toString()
-            val surname = binding.etSurname.text.toString()
+            val firstName = binding.etName.text.toString()
+            val lastName = binding.etSurname.text.toString()
             val street = binding.etStreet.text.toString()
             val zipCode = binding.etZipCode.text.toString()
             val city = binding.etCity.text.toString()
@@ -35,14 +37,14 @@ class UsersInputDataActivity : AppCompatActivity() {
             val userId = FirebaseAuth.getInstance().uid
 
             when {
-                name.isEmpty() -> {
+                firstName.isEmpty() -> {
                     Toast.makeText(
                         this@UsersInputDataActivity,
                         "Please enter a Name",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                surname.isEmpty() -> {
+                lastName.isEmpty() -> {
                     Toast.makeText(
                         this@UsersInputDataActivity,
                         "Please enter a Surname",
@@ -85,10 +87,11 @@ class UsersInputDataActivity : AppCompatActivity() {
                     ).show()
                 }
                 else -> {
-                    database = FirebaseDatabase.getInstance().getReference("Users")
-                    val User =
-                        UserData(userId, name, surname, street, zipCode, city, country, phoneNumber)
-                    database.child(userId.toString()).setValue(User).addOnSuccessListener {
+
+                    val user =
+                        UserData(userId, firstName, lastName, street, zipCode, city, country, phoneNumber)
+                    dbReference.child(userId.toString()).setValue(user)
+                        .addOnSuccessListener {
 
                         Toast.makeText(this, "Successfully saved", Toast.LENGTH_SHORT).show()
 

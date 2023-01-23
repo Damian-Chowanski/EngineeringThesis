@@ -19,16 +19,19 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
         this.title = "Log In Page"
 
+        val logEmail = binding.loginEmail
+        val logPass = binding.loginPassword
+
         // button login functionality
         binding.btnLogin.setOnClickListener {
-            val userEmail: String = binding.loginEmail.text.toString().trim { it <=  ' '}
-            val userPass: String = binding.loginPassword.text.toString().trim{ it <=  ' '}
+            val userEmail: String = logEmail.text.toString().trim { it <=  ' '}
+            val userPass: String = logPass.text.toString().trim{ it <=  ' '}
 
             if (userEmail.isEmpty()) {
-                binding.loginEmail.error = "Please type an email"
+                logEmail.error = "Please type an email"
             }
             else if (userPass.isEmpty()){
-                binding.loginPassword.error = "Please type a password"
+                logPass.error = "Please type a password"
             }
             else {
                 FirebaseAuth.getInstance().signInWithEmailAndPassword(userEmail, userPass).addOnCompleteListener { task ->
