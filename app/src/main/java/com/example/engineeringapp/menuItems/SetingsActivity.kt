@@ -19,8 +19,8 @@ class SetingsActivity : AppCompatActivity() {
         setContentView(binding.root)
         val user = intent.getSerializableExtra("UserData") as UserData
 
-        binding.etName.setText(user.firstName)
-        binding.etSurname.setText(user.lastName)
+        binding.etFirstname.setText(user.firstname)
+        binding.etLastname.setText(user.lastname)
         binding.etStreet.setText(user.street)
         binding.etZipCode.setText(user.zipCode)
         binding.etCity.setText(user.city)

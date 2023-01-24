@@ -27,8 +27,8 @@ class UsersInputDataActivity : AppCompatActivity() {
 
         binding.btnSave.setOnClickListener {
 
-            val firstName = binding.etName.text.toString()
-            val lastName = binding.etSurname.text.toString()
+            val firstName = binding.etFirstname.text.toString()
+            val lastName = binding.etLastname.text.toString()
             val street = binding.etStreet.text.toString()
             val zipCode = binding.etZipCode.text.toString()
             val city = binding.etCity.text.toString()
@@ -40,49 +40,49 @@ class UsersInputDataActivity : AppCompatActivity() {
                 firstName.isEmpty() -> {
                     Toast.makeText(
                         this@UsersInputDataActivity,
-                        "Please enter a Name",
+                        "Please enter a firstname",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
                 lastName.isEmpty() -> {
                     Toast.makeText(
                         this@UsersInputDataActivity,
-                        "Please enter a Surname",
+                        "Please enter a lastname",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
                 street.isEmpty() -> {
                     Toast.makeText(
                         this@UsersInputDataActivity,
-                        "Please enter a Street",
+                        "Please enter a street",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
                 zipCode.isEmpty() -> {
                     Toast.makeText(
                         this@UsersInputDataActivity,
-                        "Please enter a Zip code",
+                        "Please enter a zip code",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
                 city.isEmpty() -> {
                     Toast.makeText(
                         this@UsersInputDataActivity,
-                        "Please enter a City",
+                        "Please enter a city",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
                 country.isEmpty() -> {
                     Toast.makeText(
                         this@UsersInputDataActivity,
-                        "Please enter a Country",
+                        "Please enter a country",
                         Toast.LENGTH_SHORT
                     ).show()
                 }
                 phoneNumber.isEmpty() -> {
                     Toast.makeText(
                         this@UsersInputDataActivity,
-                        "Please enter a Phone number",
+                        "Please enter a phone number",
                         Toast.LENGTH_SHORT
                     ).show()
                 }

@@ -48,14 +48,14 @@
             android:text="@string/name"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/et_name"
+            app:layout_constraintEnd_toStartOf="@+id/et_firstname"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_information"
             app:layout_constraintBottom_toTopOf="@id/tv_surname"
             tools:layout_editor_absoluteY="223dp" />
 
         <EditText
-            android:id="@+id/et_name"
+            android:id="@+id/et_firstname"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -66,7 +66,7 @@
             android:minHeight="48dp"
             android:textColorHint="#78909C"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/et_surname"
+            app:layout_constraintBottom_toTopOf="@+id/et_lastname"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_information"
             tools:ignore="DuplicateSpeakableTextCheck" />
@@ -78,13 +78,13 @@
             android:text="@string/surname"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/et_surname"
+            app:layout_constraintEnd_toStartOf="@+id/et_lastname"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_name"
             app:layout_constraintBottom_toTopOf="@id/et_street"/>
 
         <EditText
-            android:id="@+id/et_surname"
+            android:id="@+id/et_lastname"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -97,7 +97,7 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@id/et_street"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_name"
+            app:layout_constraintTop_toBottomOf="@id/et_firstname"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <TextView
@@ -126,7 +126,7 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@id/et_zip_code"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_surname"
+            app:layout_constraintTop_toBottomOf="@id/et_lastname"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <TextView

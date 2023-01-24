@@ -8,8 +8,8 @@ import kotlinx.serialization.json.Json
 
 data class UserData(
     val uid: String? = null,
-    val firstName: String? = null,
-    val lastName: String? = null,
+    val firstname: String? = null,
+    val lastname: String? = null,
     val street: String? = null,
     val zipCode: String? = null,
     val city: String? = null,

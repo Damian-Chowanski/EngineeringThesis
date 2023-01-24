@@ -37,15 +37,14 @@ class MainActivity : AppCompatActivity() {
         dbref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val id = userId
-                val firstname = snapshot.child("name").value.toString()
-                val lastname = snapshot.child("surname").value.toString()
+                val firstname = snapshot.child("firstname").value.toString()
+                val lastname = snapshot.child("lastname").value.toString()
                 val street = snapshot.child("street").value.toString()
                 val zipCode = snapshot.child("zipCode").value.toString()
                 val city = snapshot.child("city").value.toString()
                 val country = snapshot.child("country").value.toString()
                 val phone = snapshot.child("phoneNumber").value.toString()
                 user = UserData(id, firstname, lastname, street, zipCode, city, country, phone)
-                println(user.firstName)
             }
             override fun onCancelled(error: DatabaseError) {
                 println("ERROR")
