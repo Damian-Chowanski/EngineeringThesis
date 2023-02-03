@@ -20,7 +20,7 @@
     <string name="zip_code">Zip code</string>
     <string name="street">Street</string>
     <string name="phone_number">Phone</string>
-    <string name="surname">Surname</string>
+    <string name="lastname">Lastname</string>
     <string name="name">Name</string>
     <string name="save">Save</string>
     <string name="logout">LOGOUT</string>

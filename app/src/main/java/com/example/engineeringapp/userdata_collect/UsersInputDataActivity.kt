@@ -23,6 +23,8 @@ class UsersInputDataActivity : AppCompatActivity() {
         setContentView(binding.root)
         this.title = "Present yourself!"
 
+
+
         dbReference = FirebaseDatabase.getInstance().getReference("Users")
 
         binding.btnSave.setOnClickListener {

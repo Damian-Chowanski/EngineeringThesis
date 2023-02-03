@@ -7,12 +7,12 @@ import kotlinx.serialization.json.Json
 
 
 data class UserData(
-    val uid: String? = null,
-    val firstname: String? = null,
-    val lastname: String? = null,
-    val street: String? = null,
-    val zipCode: String? = null,
-    val city: String? = null,
-    val country: String? = null,
-    val phoneNumber: String? = null
+    val uid: String?,
+    val firstname: String?,
+    val lastname: String?,
+    val street: String?,
+    val zipCode: String?,
+    val city: String?,
+    val country: String?,
+    val phoneNumber: String?
 ) : Serializable

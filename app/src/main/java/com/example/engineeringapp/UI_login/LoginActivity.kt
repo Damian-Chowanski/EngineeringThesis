@@ -21,7 +21,6 @@ class LoginActivity : AppCompatActivity() {
 
         val logEmail = binding.loginEmail
         val logPass = binding.loginPassword
-
         // button login functionality
         binding.btnLogin.setOnClickListener {
             val userEmail: String = logEmail.text.toString().trim { it <=  ' '}
