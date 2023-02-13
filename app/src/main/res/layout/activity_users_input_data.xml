@@ -29,10 +29,10 @@
         android:text="@string/name"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/et_firstname"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_information"
         app:layout_constraintBottom_toTopOf="@id/tv_lastname"
+        app:layout_constraintTop_toBottomOf="@+id/tv_information"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/et_firstname"
         tools:layout_editor_absoluteY="223dp" />
 
     <EditText
@@ -41,16 +41,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@color/white"
-        android:hint="@string/name"
-        android:importantForAutofill="no"
         android:inputType="text"
         android:minHeight="48dp"
-        android:textColorHint="#78909C"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_lastname"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_information"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        app:layout_constraintBottom_toTopOf="@+id/et_lastname"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/tv_lastname"
@@ -70,16 +66,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@color/white"
-        android:hint="@string/lastname"
-        android:importantForAutofill="no"
         android:inputType="text"
         android:minHeight="48dp"
-        android:textColorHint="#78909C"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/et_street"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_firstname"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        app:layout_constraintBottom_toTopOf="@id/et_street"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/tv_street"
@@ -91,7 +83,7 @@
         app:layout_constraintEnd_toStartOf="@+id/et_street"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_lastname"
-        app:layout_constraintBottom_toTopOf="@id/et_zip_code"/>
+        app:layout_constraintBottom_toTopOf="@id/et_zip_code" />
 
     <EditText
         android:id="@+id/et_street"
@@ -99,16 +91,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@color/white"
-        android:hint="@string/street"
-        android:importantForAutofill="no"
         android:inputType="text"
         android:minHeight="48dp"
-        android:textColorHint="#78909C"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/et_zip_code"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_lastname"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        app:layout_constraintBottom_toTopOf="@id/et_zip_code"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/tv_zip_code"
@@ -117,10 +105,10 @@
         android:text="@string/zip_code"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/et_zip_code"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_street"
-        app:layout_constraintBottom_toTopOf="@id/tv_city"/>
+        app:layout_constraintBottom_toTopOf="@id/tv_city"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/et_zip_code" />
 
     <EditText
         android:id="@+id/et_zip_code"
@@ -128,16 +116,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@color/white"
-        android:hint="@string/zip_code"
-        android:importantForAutofill="no"
         android:inputType="text"
         android:minHeight="48dp"
-        android:textColorHint="#78909C"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/et_city"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_street"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        app:layout_constraintBottom_toTopOf="@id/et_city"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/tv_city"
@@ -146,11 +130,10 @@
         android:text="@string/city"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/tv_country"
-        app:layout_constraintEnd_toStartOf="@+id/et_city"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_zip_code"
-        />
+        app:layout_constraintBottom_toTopOf="@+id/tv_country"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/et_city" />
 
     <EditText
         android:id="@+id/et_city"
@@ -158,16 +141,12 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
         android:background="@color/white"
-        android:hint="@string/city"
-        android:importantForAutofill="no"
         android:inputType="text"
         android:minHeight="48dp"
-        android:textColorHint="#78909C"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_country"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_zip_code"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        app:layout_constraintBottom_toTopOf="@+id/et_country"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/tv_country"
@@ -176,27 +155,23 @@
         android:text="@string/country"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/et_country"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_city"
-        app:layout_constraintBottom_toTopOf="@id/tv_phone_number"/>
+        app:layout_constraintBottom_toTopOf="@id/tv_phone_number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/et_country" />
 
     <EditText
         android:id="@+id/et_country"
         android:layout_width="240dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:autofillHints=""
         android:background="@color/white"
-        android:hint="@string/country"
         android:inputType="text"
         android:minHeight="48dp"
-        android:textColorHint="#78909C"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/et_phone_number"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_city"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        app:layout_constraintBottom_toTopOf="@+id/et_phone_number"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/tv_phone_number"
@@ -205,10 +180,10 @@
         android:text="@string/phone_number"
         android:textColor="@color/white"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/et_phone_number"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_country"
-        app:layout_constraintBottom_toTopOf="@id/btn_save"/>
+        app:layout_constraintBottom_toTopOf="@id/btn_save"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/et_phone_number" />
 
     <EditText
         android:id="@+id/et_phone_number"
@@ -218,15 +193,12 @@
         android:layout_marginBottom="16dp"
         android:autofillHints=""
         android:background="@color/white"
-        android:hint="@string/phone_number"
         android:inputType="phone"
         android:minHeight="48dp"
-        android:textColorHint="#78909C"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_save"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_country"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+        app:layout_constraintBottom_toTopOf="@+id/btn_save"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/btn_save"
