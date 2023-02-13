@@ -16,23 +16,24 @@
             android:background="@color/secondary"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Main Menu"
+            app:title="Settings"
             app:menu="@menu/top_app_bar"
             style="@style/Widget.MaterialComponents.Toolbar.Primary">
 
         </com.google.android.material.appbar.MaterialToolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tv_information"
+            android:id="@+id/tv_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
-            android:text="@string/let_us_know_about_you"
+            android:text="@string/update_data"
             android:textColor="@color/white"
             android:textSize="32sp"
             android:textStyle="bold"
@@ -50,7 +51,7 @@
             android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/et_firstname"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_information"
+            app:layout_constraintTop_toBottomOf="@+id/tv_update"
             app:layout_constraintBottom_toTopOf="@id/tv_lastname"
             tools:layout_editor_absoluteY="223dp" />
 
@@ -60,15 +61,12 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:background="@color/white"
-            android:hint="@string/name"
-            android:importantForAutofill="no"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColorHint="#78909C"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/et_lastname"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_information"
+            app:layout_constraintTop_toBottomOf="@+id/tv_update"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <TextView
@@ -89,11 +87,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:background="@color/white"
-            android:hint="@string/lastname"
-            android:importantForAutofill="no"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColorHint="#78909C"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@id/et_street"
             app:layout_constraintEnd_toEndOf="parent"
@@ -118,11 +113,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:background="@color/white"
-            android:hint="@string/street"
-            android:importantForAutofill="no"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColorHint="#78909C"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@id/et_zip_code"
             app:layout_constraintEnd_toEndOf="parent"
@@ -147,11 +139,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:background="@color/white"
-            android:hint="@string/zip_code"
-            android:importantForAutofill="no"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColorHint="#78909C"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@id/et_city"
             app:layout_constraintEnd_toEndOf="parent"
@@ -177,11 +166,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:background="@color/white"
-            android:hint="@string/city"
-            android:importantForAutofill="no"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColorHint="#78909C"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/et_country"
             app:layout_constraintEnd_toEndOf="parent"
@@ -206,16 +192,13 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:background="@color/white"
-            android:hint="@string/country"
             android:inputType="text"
             android:minHeight="48dp"
-            android:textColorHint="#78909C"
             android:textSize="24sp"
+            app:layout_constraintTop_toBottomOf="@id/et_city"
             app:layout_constraintBottom_toTopOf="@+id/et_phone_number"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_city"
-            tools:ignore="DuplicateSpeakableTextCheck"
-            android:autofillHints="" />
+            tools:ignore="DuplicateSpeakableTextCheck"/>
 
         <TextView
             android:id="@+id/tv_phone_number"
@@ -235,12 +218,9 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:autofillHints=""
             android:background="@color/white"
-            android:hint="@string/phone_number"
             android:inputType="phone"
             android:minHeight="48dp"
-            android:textColorHint="#78909C"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/et_email"
             app:layout_constraintEnd_toEndOf="parent"
@@ -265,17 +245,13 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:autofillHints=""
             android:background="@color/white"
-            android:hint="@string/emailbox_hint"
             android:inputType="textEmailAddress"
             android:minHeight="48dp"
-            android:textColorHint="#78909C"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/btn_save"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_phone_number"
-            tools:ignore="DuplicateSpeakableTextCheck" />
+            app:layout_constraintTop_toBottomOf="@id/et_phone_number" />
 
         <Button
             android:id="@+id/btn_save"
