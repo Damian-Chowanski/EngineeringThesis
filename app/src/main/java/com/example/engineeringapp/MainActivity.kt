@@ -5,17 +5,14 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.engineeringapp.menuItems.SettingsActivity
 import com.example.engineeringapp.Module.UserData
 import com.example.engineeringapp.Module.Utility
 import com.example.engineeringapp.databinding.ActivityMainBinding
-import com.example.engineeringapp.menuItems.SetingsActivity
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import kotlinx.serialization.encodeToString
-import kotlinx.serialization.json.Json
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -67,7 +64,7 @@ class MainActivity : AppCompatActivity() {
 
             when (menuItem.itemId) {
                 R.id.settings -> {
-                    val intent = Intent(this,SetingsActivity::class.java)
+                    val intent = Intent(this, SettingsActivity::class.java)
                     intent.putExtra("UserData", user)
                     startActivity(intent)
                     true

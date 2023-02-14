@@ -13,7 +13,7 @@
         android:theme="@style/Theme.EngineeringApp"
         tools:targetApi="31">
         <activity
-            android:name=".menuItems.SetingsActivity"
+            android:name=".menuItems.SettingsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
