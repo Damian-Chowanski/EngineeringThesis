@@ -49,14 +49,14 @@
             android:text="@string/name"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/et_firstname"
+            app:layout_constraintEnd_toStartOf="@+id/et_firstname_update"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_update"
             app:layout_constraintBottom_toTopOf="@id/tv_lastname"
             tools:layout_editor_absoluteY="223dp" />
 
         <EditText
-            android:id="@+id/et_firstname"
+            android:id="@+id/et_firstname_update"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -64,7 +64,7 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/et_lastname"
+            app:layout_constraintBottom_toTopOf="@+id/et_lastname_update"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_update"
             tools:ignore="DuplicateSpeakableTextCheck" />
@@ -76,13 +76,13 @@
             android:text="@string/lastname"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@id/et_street"
-            app:layout_constraintEnd_toStartOf="@+id/et_lastname"
+            app:layout_constraintBottom_toTopOf="@id/et_street_update"
+            app:layout_constraintEnd_toStartOf="@+id/et_lastname_update"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_name" />
 
         <EditText
-            android:id="@+id/et_lastname"
+            android:id="@+id/et_lastname_update"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -90,9 +90,9 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@id/et_street"
+            app:layout_constraintBottom_toTopOf="@id/et_street_update"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_firstname"
+            app:layout_constraintTop_toBottomOf="@id/et_firstname_update"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <TextView
@@ -102,13 +102,13 @@
             android:text="@string/street"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/et_street"
+            app:layout_constraintEnd_toStartOf="@+id/et_street_update"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_lastname"
-            app:layout_constraintBottom_toTopOf="@id/et_zip_code"/>
+            app:layout_constraintBottom_toTopOf="@id/et_zip_code_update"/>
 
         <EditText
-            android:id="@+id/et_street"
+            android:id="@+id/et_street_update"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -116,9 +116,9 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@id/et_zip_code"
+            app:layout_constraintBottom_toTopOf="@id/et_zip_code_update"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_lastname"
+            app:layout_constraintTop_toBottomOf="@id/et_lastname_update"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <TextView
@@ -128,13 +128,13 @@
             android:text="@string/zip_code"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/et_zip_code"
+            app:layout_constraintEnd_toStartOf="@+id/et_zip_code_update"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_street"
             app:layout_constraintBottom_toTopOf="@id/tv_city"/>
 
         <EditText
-            android:id="@+id/et_zip_code"
+            android:id="@+id/et_zip_code_update"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -142,9 +142,9 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@id/et_city"
+            app:layout_constraintBottom_toTopOf="@id/et_city_update"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_street"
+            app:layout_constraintTop_toBottomOf="@id/et_street_update"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <TextView
@@ -155,13 +155,13 @@
             android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/tv_country"
-            app:layout_constraintEnd_toStartOf="@+id/et_city"
+            app:layout_constraintEnd_toStartOf="@+id/et_city_update"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_zip_code"
             />
 
         <EditText
-            android:id="@+id/et_city"
+            android:id="@+id/et_city_update"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -169,9 +169,9 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/et_country"
+            app:layout_constraintBottom_toTopOf="@+id/et_country_update"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_zip_code"
+            app:layout_constraintTop_toBottomOf="@id/et_zip_code_update"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <TextView
@@ -181,13 +181,13 @@
             android:text="@string/country"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/et_country"
+            app:layout_constraintEnd_toStartOf="@+id/et_country_update"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_city"
             app:layout_constraintBottom_toTopOf="@id/tv_phone_number"/>
 
         <EditText
-            android:id="@+id/et_country"
+            android:id="@+id/et_country_update"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -195,8 +195,8 @@
             android:inputType="text"
             android:minHeight="48dp"
             android:textSize="24sp"
-            app:layout_constraintTop_toBottomOf="@id/et_city"
-            app:layout_constraintBottom_toTopOf="@+id/et_phone_number"
+            app:layout_constraintTop_toBottomOf="@id/et_city_update"
+            app:layout_constraintBottom_toTopOf="@+id/et_phone_number_update"
             app:layout_constraintEnd_toEndOf="parent"
             tools:ignore="DuplicateSpeakableTextCheck"/>
 
@@ -207,13 +207,13 @@
             android:text="@string/phone_number"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/et_phone_number"
+            app:layout_constraintEnd_toStartOf="@+id/et_phone_number_update"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_country"
             app:layout_constraintBottom_toTopOf="@id/tv_email"/>
 
         <EditText
-            android:id="@+id/et_phone_number"
+            android:id="@+id/et_phone_number_update"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -222,9 +222,9 @@
             android:inputType="phone"
             android:minHeight="48dp"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@+id/et_email"
+            app:layout_constraintBottom_toTopOf="@+id/et_email_update"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_country"
+            app:layout_constraintTop_toBottomOf="@id/et_country_update"
             tools:ignore="DuplicateSpeakableTextCheck" />
 
         <TextView
@@ -234,13 +234,13 @@
             android:text="@string/emailbox_hint"
             android:textColor="@color/white"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/et_email"
+            app:layout_constraintEnd_toStartOf="@+id/et_email_update"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_phone_number"
             app:layout_constraintBottom_toTopOf="@id/btn_save"/>
 
         <EditText
-            android:id="@+id/et_email"
+            android:id="@+id/et_email_update"
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
@@ -251,7 +251,7 @@
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/btn_save"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_phone_number" />
+            app:layout_constraintTop_toBottomOf="@id/et_phone_number_update" />
 
         <Button
             android:id="@+id/btn_save"
@@ -266,7 +266,7 @@
             app:backgroundTint="@color/secondary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_email"
+            app:layout_constraintTop_toBottomOf="@id/et_email_update"
             android:focusable="true" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
