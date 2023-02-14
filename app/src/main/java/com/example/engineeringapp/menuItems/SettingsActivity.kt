@@ -36,9 +36,7 @@ class SettingsActivity : AppCompatActivity() {
 
             when (menuItem.itemId) {
                 R.id.settings -> {
-                    val intent = Intent(this, SettingsActivity::class.java)
-                    intent.putExtra("UserData", user)
-                    startActivity(intent)
+                    closeContextMenu()
                     true
                 }
                 R.id.ab_logout -> {
