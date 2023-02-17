@@ -9,6 +9,7 @@ import com.google.firebase.database.FirebaseDatabase
 
 class Utility {
     companion object {
+        @JvmStatic
         fun logout(context: Context): Intent {
             FirebaseAuth.getInstance().signOut()
             return Intent(context, LoginActivity::class.java)

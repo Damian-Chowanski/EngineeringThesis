@@ -7,23 +7,7 @@
     tools:context=".menuItems.SettingsActivity"
     android:background="@color/primary">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
-            android:background="@color/secondary"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:title="Settings"
-            app:menu="@menu/top_app_bar"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary">
-
-        </com.google.android.material.appbar.MaterialToolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
+    <include layout="@layout/top_app_bar"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
