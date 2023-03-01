@@ -3,7 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/settings"
+        android:id="@+id/ab_new_case"
+        android:title="@string/new_case"
+        android:contentDescription="@string/new_case"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/ab_settings"
         android:title="@string/settings"
         android:contentDescription="@string/settings"
         app:showAsAction="never"/>

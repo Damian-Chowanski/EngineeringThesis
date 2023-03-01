@@ -132,7 +132,7 @@ class SettingsActivity : AppCompatActivity() {
         topAppBar.setOnMenuItemClickListener { menuItem ->
 
             when (menuItem.itemId) {
-                R.id.settings -> {
+                R.id.ab_settings -> {
                     closeContextMenu()
                     true
                 }
