@@ -3,6 +3,9 @@ package com.example.engineeringapp.menuItems
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.View
 import android.widget.Toast
 import com.example.engineeringapp.MainActivity
 import com.example.engineeringapp.Module.UserData
@@ -16,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase
 
 class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
+    private lateinit var user: UserData
     lateinit var topAppBar: MaterialToolbar
     lateinit var dbReference: DatabaseReference
 
@@ -26,7 +30,7 @@ class SettingsActivity : AppCompatActivity() {
 
         topAppBar = findViewById(R.id.topAppBar)
 
-        val user = intent.getSerializableExtra("UserData") as UserData
+        user = intent.getSerializableExtra("UserData") as UserData
 
         binding.etFirstnameUpdate.setText(user.firstname)
         binding.etLastnameUpdate.setText(user.lastname)
@@ -122,22 +126,35 @@ class SettingsActivity : AppCompatActivity() {
                             Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
 
                         }
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
                 }
             }
 
         }
+    }
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) {
+            this.window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_FULLSCREEN)
+        }
+    }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.top_app_bar_menu, menu)
+        return true
+    }
+
+    private fun setTopAppBarMenu() {
         topAppBar.setOnMenuItemClickListener { menuItem ->
-
             when (menuItem.itemId) {
                 R.id.ab_settings -> {
-                    closeContextMenu()
+                    val intent = Intent(this, SettingsActivity::class.java)
+                    intent.putExtra("UserData", user)
+                    startActivity(intent)
                     true
                 }
                 R.id.ab_logout -> {
-                    intent = Utility.logout(this@SettingsActivity)
+                    val intent = Utility.logout(this@SettingsActivity)
                     startActivity(intent)
                     true
                 }

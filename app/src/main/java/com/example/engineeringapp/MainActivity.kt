@@ -1,8 +1,9 @@
 package com.example.engineeringapp
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -17,10 +18,9 @@ import com.google.firebase.database.*
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var topAppBar: MaterialToolbar
-    private lateinit var dbref : DatabaseReference
-    private lateinit var user : UserData
+    private lateinit var dbref: DatabaseReference
+    private lateinit var user: UserData
 
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
                 val phone = snapshot.child("phoneNumber").value.toString()
                 user = UserData(id, firstname, lastname, street, zipCode, city, country, phone)
             }
+
             override fun onCancelled(error: DatabaseError) {
                 println("ERROR")
             }
@@ -50,18 +51,35 @@ class MainActivity : AppCompatActivity() {
 
         binding.userId.text = "User_ID :: $userId"
 
-        val emailId = FirebaseAuth.getInstance().currentUser!!.email
+        val emailId = FirebaseAuth.getInstance().currentUser?.email
 
         binding.userEmail.text = "User email :: $emailId"
 
         val btnLogout: Button = findViewById(R.id.btn_logout)
         btnLogout.setOnClickListener {
-            intent = Utility.logout(this@MainActivity)
+            val intent = Utility.logout(this@MainActivity)
             startActivity(intent)
         }
 
-        topAppBar.setOnMenuItemClickListener { menuItem ->
+        setTopAppBarMenu()
+    }
 
+    //hide action bar
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        if (hasFocus) {
+            this.window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_FULLSCREEN)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.top_app_bar_menu, menu)
+        return true
+    }
+
+    private fun setTopAppBarMenu() {
+        topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.ab_settings -> {
                     val intent = Intent(this, SettingsActivity::class.java)
@@ -70,7 +88,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.ab_logout -> {
-                    intent = Utility.logout(this@MainActivity)
+                    val intent = Utility.logout(this@MainActivity)
                     startActivity(intent)
                     true
                 }
@@ -80,14 +98,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-
-    //hide action bar
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-        if (hasFocus) {
-            this.window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_FULLSCREEN)
-        }
-    }
 }
-
