@@ -2,63 +2,54 @@ package com.example.engineeringapp.UI_login
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.engineeringapp.R
 import com.example.engineeringapp.databinding.ActivityRegistrationBinding
 import com.example.engineeringapp.userdata_collect.UserDataCollectInformation
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 class RegistrationActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityRegistrationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegistrationBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        this.title = "Registration Page"
+        title = getString(R.string.registration_page_title)
 
-        val regEmail = binding.registerEmail
-        val regPass1 = binding.registrationPassword
-        val regPass2 = binding.repeatPassword
+        binding.btnRegister.setOnClickListener { registerUser() }
+        binding.loginActivityText.setOnClickListener { onBackPressed() }
 
-        //button register functionality
-        binding.btnRegister.setOnClickListener {
+        // Hide action bar
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+    }
 
-            val userEmail: String = regEmail.text.toString().trim { it <= ' ' }
-            val userPass: String = regPass1.text.toString().trim { it <= ' ' }
-            val userPassRep: String = regPass2.text.toString().trim { it <= ' ' }
+    private fun registerUser() {
+        val userEmail = binding.registerEmail.text.toString().trim()
+        val userPass = binding.registrationPassword.text.toString().trim()
+        val userPassRep = binding.repeatPassword.text.toString().trim()
 
-            if (userEmail.isEmpty()) {
-                regEmail.error = "Please enter an email"
-            }
-            else if (userPass.isEmpty()) {
-                regPass1.error = "Please enter a password"
-            }
-            else if (userPassRep.isEmpty()) {
-                regPass2.error = "Please repeat a password"
-            }
-            else if (userPass != userPassRep) {
-                regPass2.error = "Passwords don't match"
-            }
-            else {
+        when {
+            userEmail.isEmpty() -> binding.registerEmail.error = getString(R.string.error_empty_field)
+            userPass.isEmpty() -> binding.registrationPassword.error = getString(R.string.error_empty_field)
+            userPassRep.isEmpty() -> binding.repeatPassword.error = getString(R.string.error_empty_field)
+            userPass != userPassRep -> binding.repeatPassword.error = getString(R.string.error_passwords_do_not_match)
+            else -> {
                 FirebaseAuth.getInstance().createUserWithEmailAndPassword(userEmail, userPass)
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             val firebaseUser: FirebaseUser = task.result!!.user!!
                             Toast.makeText(
-                                this@RegistrationActivity,
-                                "You were registered successfully.",
+                                this,
+                                getString(R.string.successful_registration),
                                 Toast.LENGTH_SHORT
                             ).show()
 
-                            val intent =
-                                Intent(
-                                    this@RegistrationActivity,
-                                    UserDataCollectInformation::class.java
-                                )
+                            val intent = Intent(this, UserDataCollectInformation::class.java)
                             intent.flags =
                                 Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             intent.putExtra("email", userEmail)
@@ -66,24 +57,13 @@ class RegistrationActivity : AppCompatActivity() {
                             finish()
                         } else {
                             Toast.makeText(
-                                this@RegistrationActivity,
+                                this,
                                 task.exception!!.message.toString(),
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
-                     }
+                    }
             }
-        }
-        //Go to Login Activity:
-        binding.loginActivityText.setOnClickListener {
-            onBackPressed()
-        }
-    }
-    //hide action bar
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-        if (hasFocus){
-            this.window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_FULLSCREEN)
         }
     }
 }

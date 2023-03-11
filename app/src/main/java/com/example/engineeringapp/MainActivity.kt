@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN // Hide action bar
 
         topAppBar = findViewById(R.id.topAppBar)
         val userId = FirebaseAuth.getInstance().uid.toString()
@@ -62,14 +63,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         setTopAppBarMenu()
-    }
-
-    //hide action bar
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-        if (hasFocus) {
-            this.window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_FULLSCREEN)
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

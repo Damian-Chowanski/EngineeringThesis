@@ -27,6 +27,7 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN // Hide action bar
 
         topAppBar = findViewById(R.id.topAppBar)
 
@@ -130,12 +131,7 @@ class SettingsActivity : AppCompatActivity() {
             }
 
         }
-    }
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-        if (hasFocus) {
-            this.window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_FULLSCREEN)
-        }
+        setTopAppBarMenu()
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -148,9 +144,7 @@ class SettingsActivity : AppCompatActivity() {
         topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.ab_settings -> {
-                    val intent = Intent(this, SettingsActivity::class.java)
-                    intent.putExtra("UserData", user)
-                    startActivity(intent)
+                    closeContextMenu()
                     true
                 }
                 R.id.ab_logout -> {
@@ -163,5 +157,6 @@ class SettingsActivity : AppCompatActivity() {
                 }
             }
         }
+
     }
 }
