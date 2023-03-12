@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="Monitor">Monitor</string-array>
+    <string-array name="smartphone">Smartphone</string-array>
+    <string-array name="projector">Projector</string-array>
+    <string-array name="notebook">Notebook</string-array>
+    <string-array name="desktop">Desktop</string-array>
+    <string-array name="tv">TV</string-array>
+    <string-array name="other">Other</string-array>
+</resources>

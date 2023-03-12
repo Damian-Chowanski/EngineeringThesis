@@ -11,6 +11,7 @@ import com.example.engineeringapp.menuItems.SettingsActivity
 import com.example.engineeringapp.Module.UserData
 import com.example.engineeringapp.Module.Utility
 import com.example.engineeringapp.databinding.ActivityMainBinding
+import com.example.engineeringapp.menuItems.ReportNewCase
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -74,6 +75,11 @@ class MainActivity : AppCompatActivity() {
     private fun setTopAppBarMenu() {
         topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
+                R.id.ab_new_case -> {
+                    val intent = Intent(this, ReportNewCase::class.java)
+                    startActivity(intent)
+                    true
+                }
                 R.id.ab_settings -> {
                     val intent = Intent(this, SettingsActivity::class.java)
                     intent.putExtra("UserData", user)

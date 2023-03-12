@@ -143,6 +143,11 @@ class SettingsActivity : AppCompatActivity() {
     private fun setTopAppBarMenu() {
         topAppBar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
+                R.id.ab_new_case -> {
+                    val intent = Intent(this, ReportNewCase::class.java)
+                    startActivity(intent)
+                    true
+                }
                 R.id.ab_settings -> {
                     closeContextMenu()
                     true
