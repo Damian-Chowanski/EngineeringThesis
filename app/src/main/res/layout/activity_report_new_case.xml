@@ -1,9 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primary"
     tools:context=".menuItems.ReportNewCase">
 
-</LinearLayout>
+    <include
+        android:id="@+id/my_included_layout"
+        layout="@layout/top_app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tv_newCase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_device_type"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toTopOf="@id/bt_monitor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_included_layout" />
+
+    <Button
+        android:id="@+id/bt_monitor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:padding="8dp"
+        android:text="@string/monitor"
+        app:backgroundTint="@color/secondary"
+        app:layout_constraintBottom_toTopOf="@id/bt_projector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_newCase"
+
+        />
+
+    <Button
+        android:id="@+id/bt_projector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:padding="8dp"
+        android:text="@string/projector"
+        app:backgroundTint="@color/secondary"
+        app:layout_constraintBottom_toTopOf="@id/bt_notebook"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_monitor" />
+
+    <Button
+        android:id="@+id/bt_notebook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:padding="8dp"
+        android:text="@string/notebook"
+        app:backgroundTint="@color/secondary"
+        app:layout_constraintBottom_toTopOf="@id/bt_desktop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_projector" />
+
+    <Button
+        android:id="@+id/bt_desktop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:padding="8dp"
+        android:text="@string/desktop"
+        app:backgroundTint="@color/secondary"
+        app:layout_constraintBottom_toTopOf="@id/bt_tv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_notebook" />
+
+    <Button
+        android:id="@+id/bt_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:padding="8dp"
+        android:text="@string/tv"
+        app:backgroundTint="@color/secondary"
+        app:layout_constraintBottom_toTopOf="@id/bt_phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_desktop" />
+
+    <Button
+        android:id="@+id/bt_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:padding="8dp"
+        android:text="@string/smartphone"
+        app:backgroundTint="@color/secondary"
+        app:layout_constraintBottom_toTopOf="@id/bt_other"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bt_tv" />
+
+    <Button
+        android:id="@+id/bt_other"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:padding="8dp"
+        android:text="@string/other"
+        app:backgroundTint="@color/secondary"
+        app:layout_constraintTop_toBottomOf="@id/bt_phone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

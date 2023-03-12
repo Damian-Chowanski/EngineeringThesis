@@ -32,4 +32,12 @@
     <string name="error_passwords_do_not_match">Passwords don\'t match</string>
     <string name="registration_page_title">Registration</string>
     <string name="successful_registration">You have been successfully registered</string>
+    <string name="select_device_type">Select device type</string>
+    <string name="monitor">Monitor</string>
+    <string name="projector">Projector</string>
+    <string name="notebook">Notebook</string>
+    <string name="desktop">Desktop</string>
+    <string name="tv">TV</string>
+    <string name="smartphone">Smartphone</string>
+    <string name="other">Other</string>
 </resources>
