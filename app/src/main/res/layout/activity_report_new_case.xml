@@ -28,9 +28,9 @@
 
     <Button
         android:id="@+id/bt_monitor"
-        android:layout_width="wrap_content"
+        android:layout_width="128dp"
         android:layout_height="wrap_content"
-        android:background="@color/black"
+        android:background="@drawable/btn_rounded"
         android:padding="8dp"
         android:text="@string/monitor"
         app:backgroundTint="@color/secondary"
@@ -43,9 +43,9 @@
 
     <Button
         android:id="@+id/bt_projector"
-        android:layout_width="wrap_content"
+        android:layout_width="128dp"
         android:layout_height="wrap_content"
-        android:background="@color/black"
+        android:background="@drawable/btn_rounded"
         android:padding="8dp"
         android:text="@string/projector"
         app:backgroundTint="@color/secondary"
@@ -56,9 +56,9 @@
 
     <Button
         android:id="@+id/bt_notebook"
-        android:layout_width="wrap_content"
+        android:layout_width="128dp"
         android:layout_height="wrap_content"
-        android:background="@color/black"
+        android:background="@drawable/btn_rounded"
         android:padding="8dp"
         android:text="@string/notebook"
         app:backgroundTint="@color/secondary"
@@ -69,9 +69,9 @@
 
     <Button
         android:id="@+id/bt_desktop"
-        android:layout_width="wrap_content"
+        android:layout_width="128dp"
         android:layout_height="wrap_content"
-        android:background="@color/black"
+        android:background="@drawable/btn_rounded"
         android:padding="8dp"
         android:text="@string/desktop"
         app:backgroundTint="@color/secondary"
@@ -82,9 +82,9 @@
 
     <Button
         android:id="@+id/bt_tv"
-        android:layout_width="wrap_content"
+        android:layout_width="128dp"
         android:layout_height="wrap_content"
-        android:background="@color/black"
+        android:background="@drawable/btn_rounded"
         android:padding="8dp"
         android:text="@string/tv"
         app:backgroundTint="@color/secondary"
@@ -95,9 +95,9 @@
 
     <Button
         android:id="@+id/bt_phone"
-        android:layout_width="wrap_content"
+        android:layout_width="128dp"
         android:layout_height="wrap_content"
-        android:background="@color/black"
+        android:background="@drawable/btn_rounded"
         android:padding="8dp"
         android:text="@string/smartphone"
         app:backgroundTint="@color/secondary"
@@ -108,9 +108,9 @@
 
     <Button
         android:id="@+id/bt_other"
-        android:layout_width="wrap_content"
+        android:layout_width="128dp"
         android:layout_height="wrap_content"
-        android:background="@color/black"
+        android:background="@drawable/btn_rounded"
         android:padding="8dp"
         android:text="@string/other"
         app:backgroundTint="@color/secondary"

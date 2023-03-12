@@ -7,6 +7,6 @@ import com.example.engineeringapp.R
 class ReportNewCase : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(1R.layout.activity_report_new_case)
+        setContentView(R.layout.activity_report_new_case)
     }
 }
