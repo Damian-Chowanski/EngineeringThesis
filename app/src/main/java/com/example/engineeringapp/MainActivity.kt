@@ -27,8 +27,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN // Hide action bar
-
         topAppBar = findViewById(R.id.topAppBar)
+
         val userId = FirebaseAuth.getInstance().uid.toString()
 
         //getting data for logged user
