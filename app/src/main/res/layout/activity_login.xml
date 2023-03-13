@@ -94,6 +94,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="32dp"
+            android:background="@drawable/btn_rounded"
             android:text="@string/log_in_button"
             app:backgroundTint="@color/secondary"/>
 
