@@ -1,27 +1,25 @@
 package com.example.engineeringapp.menuItems
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.View
 import android.widget.Toast
-import com.example.engineeringapp.MainActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.example.engineeringapp.Module.UserData
 import com.example.engineeringapp.Module.Utility
 import com.example.engineeringapp.R
 import com.example.engineeringapp.databinding.ActivitySettingsBinding
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 
 class SettingsActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingsBinding
-    private lateinit var user: UserData
     lateinit var topAppBar: MaterialToolbar
-    lateinit var dbReference: DatabaseReference
+    lateinit var dbref: DatabaseReference
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,23 +28,28 @@ class SettingsActivity : AppCompatActivity() {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN // Hide action bar
 
         topAppBar = findViewById(R.id.topAppBar)
+        val userId = FirebaseAuth.getInstance().uid.toString()
 
-        user = intent.getSerializableExtra("UserData") as UserData
+        dbref = FirebaseDatabase.getInstance().getReference("Users").child(userId)
+        dbref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                binding.etFirstnameUpdate.setText(snapshot.child("firstname").value.toString())
+                binding.etLastnameUpdate.setText(snapshot.child("lastname").value.toString())
+                binding.etStreetUpdate.setText(snapshot.child("street").value.toString())
+                binding.etZipCodeUpdate.setText(snapshot.child("zipCode").value.toString())
+                binding.etCityUpdate.setText(snapshot.child("city").value.toString())
+                binding.etCountryUpdate.setText(snapshot.child("country").value.toString())
+                binding.etPhoneNumberUpdate.setText(snapshot.child("phoneNumber").value.toString())
+                binding.etEmailUpdate.setText(FirebaseAuth.getInstance().currentUser!!.email)
+            }
 
-        binding.etFirstnameUpdate.setText(user.firstname)
-        binding.etLastnameUpdate.setText(user.lastname)
-        binding.etStreetUpdate.setText(user.street)
-        binding.etZipCodeUpdate.setText(user.zipCode)
-        binding.etCityUpdate.setText(user.city)
-        binding.etCountryUpdate.setText(user.country)
-        binding.etPhoneNumberUpdate.setText(user.phoneNumber)
-        binding.etEmailUpdate.setText(FirebaseAuth.getInstance().currentUser!!.email)
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
 
-        dbReference = FirebaseDatabase.getInstance().getReference("Users")
+        binding.btnSave.setOnClickListener {
 
-        binding.btnSave.setOnClickListener{
-
-            val userId = user.uid
             val firstName = binding.etFirstnameUpdate.text.toString()
             val lastName = binding.etLastnameUpdate.text.toString()
             val street = binding.etStreetUpdate.text.toString()
@@ -117,10 +120,18 @@ class SettingsActivity : AppCompatActivity() {
                 else -> {
 
                     val user =
-                        UserData(userId, firstName, lastName, street, zipCode, city, country, phoneNumber)
-                    dbReference.child(userId.toString()).setValue(user)
+                        UserData(
+                            userId,
+                            firstName,
+                            lastName,
+                            street,
+                            zipCode,
+                            city,
+                            country,
+                            phoneNumber
+                        )
+                    dbref.setValue(user)
                         .addOnSuccessListener {
-
                             Toast.makeText(this, "Successfully saved", Toast.LENGTH_SHORT).show()
 
                         }.addOnFailureListener {

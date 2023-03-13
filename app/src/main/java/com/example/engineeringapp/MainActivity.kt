@@ -19,8 +19,6 @@ import com.google.firebase.database.*
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     lateinit var topAppBar: MaterialToolbar
-    private lateinit var dbref: DatabaseReference
-    private lateinit var user: UserData
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,25 +29,6 @@ class MainActivity : AppCompatActivity() {
 
         val userId = FirebaseAuth.getInstance().uid.toString()
 
-        //getting data for logged user
-        dbref = FirebaseDatabase.getInstance().getReference("Users").child(userId)
-        dbref.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val id = userId
-                val firstname = snapshot.child("firstname").value.toString()
-                val lastname = snapshot.child("lastname").value.toString()
-                val street = snapshot.child("street").value.toString()
-                val zipCode = snapshot.child("zipCode").value.toString()
-                val city = snapshot.child("city").value.toString()
-                val country = snapshot.child("country").value.toString()
-                val phone = snapshot.child("phoneNumber").value.toString()
-                user = UserData(id, firstname, lastname, street, zipCode, city, country, phone)
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                println("ERROR")
-            }
-        })
 
         binding.userId.text = "User_ID :: $userId"
 
@@ -82,7 +61,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.ab_settings -> {
                     val intent = Intent(this, SettingsActivity::class.java)
-                    intent.putExtra("UserData", user)
+                    //intent.putExtra("UserData", user)
                     startActivity(intent)
                     true
                 }
