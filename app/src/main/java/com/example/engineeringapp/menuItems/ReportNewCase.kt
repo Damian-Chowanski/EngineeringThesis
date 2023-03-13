@@ -39,7 +39,6 @@ class ReportNewCase : AppCompatActivity() {
                 }
                 R.id.ab_settings -> {
                     val intent = Intent(this, SettingsActivity::class.java)
-                    //intent.putExtra("UserData", user)
                     startActivity(intent)
                     true
                 }
